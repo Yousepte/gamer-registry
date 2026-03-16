@@ -30,3 +30,10 @@ test("GET /games deve retornar status 200", async () => {
     expect(response.body.title).toBe("Teste Automatizado");
   });
   
+  test("POST /games sem nome deve retornar erro", async () => {
+    const response = await request(app)
+      .post("/api/games")
+      .send({});
+  
+    expect(response.statusCode).toBe(400);
+  });
