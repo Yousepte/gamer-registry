@@ -20,7 +20,7 @@ router.post('/', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
     await pool.query('DELETE FROM games WHERE id = $1', [req.params.id]);
-    res.sendStatus(204);
+    res.sendStatus(201);
 });
 
 module.exports = router;
